@@ -33,9 +33,9 @@ identity:
   languages: [fr, en]
 
 current:
-  building:  lem-ipc · ft_ping
-  side:      kyara-extension
-  learning:  OpenGL · Rust
+  building:  Random-Block-Placement - kyara-extension
+  side:      42 school project
+  learning:  Rust
 ```
 
 </td>
@@ -43,13 +43,11 @@ current:
 
 ```diff
 @@ now compiling @@
-- printf debugging
-+ gdb
-+ valgrind --leak-check=full
-+ cargo build --release
+- handmade code
++ claude
 
-! status: writing my own Minecraft
-# wake me when it links
+! status: prompting on my Claude
+# wake me when it responsing
 ```
 
 </td>
@@ -66,7 +64,7 @@ current:
 <br/>
 <br/>
 
-<img src="https://skillicons.dev/icons?i=c,cpp,rust,python,ts,java,linux,git,docker,vscode&theme=dark" alt="stack"/>
+<img src="https://skillicons.dev/icons?i=c,cpp,rust,python,ts,java,linux,git,docker,vscode,claudecode&theme=dark" alt="stack"/>
 
 <br/>
 <br/>
@@ -80,12 +78,9 @@ current:
 <img src="https://img.shields.io/badge/C-0d0d0d?style=flat-square&logo=c&logoColor=e8e3d6&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/C++-0d0d0d?style=flat-square&logo=cplusplus&logoColor=e8e3d6&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/Rust-0d0d0d?style=flat-square&logo=rust&logoColor=e8e3d6&labelColor=0d0d0d"/>
+<img src="https://img.shields.io/badge/Java-0d0d0d?style=flat-square&logo=openjdk&logoColor=e8e3d6&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/Python-0d0d0d?style=flat-square&logo=python&logoColor=e8e3d6&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/TypeScript-0d0d0d?style=flat-square&logo=typescript&logoColor=e8e3d6&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/Java-0d0d0d?style=flat-square&logo=openjdk&logoColor=e8e3d6&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/Swift-0d0d0d?style=flat-square&logo=swift&logoColor=e8e3d6&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/Assembly-0d0d0d?style=flat-square&logo=assemblyscript&logoColor=e8e3d6&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/PHP-0d0d0d?style=flat-square&logo=php&logoColor=e8e3d6&labelColor=0d0d0d"/>
 </td>
 </tr>
 <tr>
@@ -93,18 +88,16 @@ current:
 <td align="left">
 <img src="https://img.shields.io/badge/Git-1a1a1a?style=flat-square&logo=git&logoColor=e8e3d6&labelColor=1a1a1a"/>
 <img src="https://img.shields.io/badge/Docker-1a1a1a?style=flat-square&logo=docker&logoColor=e8e3d6&labelColor=1a1a1a"/>
-<img src="https://img.shields.io/badge/OpenGL-1a1a1a?style=flat-square&logo=opengl&logoColor=e8e3d6&labelColor=1a1a1a"/>
-<img src="https://img.shields.io/badge/SDL-1a1a1a?style=flat-square&logo=c&logoColor=e8e3d6&labelColor=1a1a1a"/>
 <img src="https://img.shields.io/badge/Make-1a1a1a?style=flat-square&logo=cmake&logoColor=e8e3d6&labelColor=1a1a1a"/>
 <img src="https://img.shields.io/badge/Linux-1a1a1a?style=flat-square&logo=linux&logoColor=e8e3d6&labelColor=1a1a1a"/>
 <img src="https://img.shields.io/badge/Terminal-1a1a1a?style=flat-square&logo=gnubash&logoColor=e8e3d6&labelColor=1a1a1a"/>
+<img src="https://img.shields.io/badge/Claude-1a1a1a?style=flat-square&logo=claudecode&logoColor=e8e3d6&labelColor=1a1a1a" />
 </td>
 </tr>
 <tr>
 <td align="right" valign="middle"><code>💻&nbsp;&nbsp;ides</code></td>
 <td align="left">
 <img src="https://img.shields.io/badge/VS%20Code-262626?style=flat-square&logo=visualstudiocode&logoColor=e8e3d6&labelColor=262626"/>
-<img src="https://img.shields.io/badge/Vim-262626?style=flat-square&logo=vim&logoColor=e8e3d6&labelColor=262626"/>
 <img src="https://img.shields.io/badge/IntelliJ-262626?style=flat-square&logo=intellijidea&logoColor=e8e3d6&labelColor=262626"/>
 </td>
 </tr>
@@ -135,16 +128,9 @@ current:
 <td>Minecraft mod — place inventory blocks with custom probabilities <sub>· Java</sub></td>
 </tr>
 <tr>
-<td align="right"><code>MiniRT</code></td>
-<td>Ray tracer from scratch <sub>· C</sub></td>
-</tr>
-<tr>
-<td align="right"><code>fractol</code> · <code>GameOfLife</code> · <code>Space_Invaders</code></td>
-<td>Graphics experiments <sub>· C / SDL</sub></td>
-</tr>
 <tr>
 <td align="right"><code>libft</code> · <code>push_swap</code> · <code>Philosophers</code> · <code>minitalk</code></td>
-<td>42 core curriculum <sub>· C</sub></td>
+<td>42 core curriculum <sub>· C/C++/ts/docker/git<sub></td>
 </tr>
 </table>
 
