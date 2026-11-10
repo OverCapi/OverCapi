@@ -15,56 +15,21 @@
 
 <img src="assets/h-01.svg" width="100%" alt="0x01 whoami"/>
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-```c
-(gdb) p *overcapi
-$1 = {
-  alias    = "OverCapi",
-  school   = "42",
-  location = "France",
-  langs    = {"fr", "en"},
-  building = "kyara-extension",
-  learning = "Rust",
-  status   = PROMPTING_CLAUDE
-}
-```
-
-</td>
-<td width="50%" valign="top">
-
-```c
-(gdb) info registers
-rip  0x00000042   <school+0>
-rsp  0x7ffd0c0ffee <coffee>
-rax  0x0          leaks
-rbx  0xdeadbeef   segfaults
-rcx  0x1          more emulator
-eflags [ ZF CURIOUS ]
-
-(gdb) continue
-```
-
-</td>
-</tr>
-</table>
+<p align="center"><img src="assets/whoami.svg" width="100%" alt="(gdb) p *overcapi"/></p>
 
 <br/>
 
 <img src="assets/h-02.svg" width="100%" alt="0x02 objdump -h stack"/>
 
-<table>
-<tr>
-<td width="170"><b><code>.text</code></b><br/><sub>0x00400000 · langs</sub></td>
-<td><img src="https://skillicons.dev/icons?i=c,cpp,rust,python,ts,java&theme=dark" alt="C, C++, Rust, Python, TypeScript, Java"/></td>
-</tr>
-<tr>
-<td width="170"><b><code>.data</code></b><br/><sub>0x00600000 · tools</sub></td>
-<td><img src="https://skillicons.dev/icons?i=linux,bash,git,docker,vscode&theme=dark" alt="Linux, Bash, Git, Docker, VS Code"/>&nbsp;<img src="assets/claudecode.svg" width="48" alt="Claude Code"/></td>
-</tr>
-</table>
+<p align="center">
+<code>.text</code> <sub>0x00400000 · langs</sub><br/><br/>
+<img src="https://skillicons.dev/icons?i=c,cpp,rust,python,ts,java&theme=dark" alt="C, C++, Rust, Python, TypeScript, Java"/>
+</p>
+
+<p align="center">
+<code>.data</code> <sub>0x00600000 · tools</sub><br/><br/>
+<img src="https://skillicons.dev/icons?i=linux,bash,git,docker,vscode&theme=dark" alt="Linux, Bash, Git, Docker, VS Code"/>&nbsp;<img src="assets/claudecode.svg" width="48" alt="Claude Code"/>
+</p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/C-161b22?style=for-the-badge&logo=c&logoColor=f0b429" alt="C"/>
@@ -78,6 +43,8 @@ eflags [ ZF CURIOUS ]
 <br/>
 
 <img src="assets/h-03.svg" width="100%" alt="0x03 readelf -S projects"/>
+
+<div align="center">
 
 <table>
 <tr><th>[Nr]</th><th></th><th align="left">Name</th><th align="left">Description</th><th>Stars</th></tr>
@@ -118,6 +85,8 @@ eflags [ ZF CURIOUS ]
 </tr>
 </table>
 
+</div>
+
 <br/>
 
 <img src="assets/h-04.svg" width="100%" alt="0x04 contributions"/>
@@ -128,16 +97,6 @@ eflags [ ZF CURIOUS ]
 
 <img src="assets/h-05.svg" width="100%" alt="0x05 grep one piece"/>
 
-```c
-00000420  4f 4e 45 50 49 45 43 45  |ONEPIECE|
-00000428  69 73 20 72 65 61 6c 21  |is real!|
-
-while (!found(ONE_PIECE))
-    sail(GRAND_LINE);   // next stop: Laugh Tale
-
-/* crew:   nakama[] = { claude, gdb, valgrind };  */
-/* bounty: 0x00000000 berries (for now)           */
-/* hat:    straw, sizeof(dream) > SIZE_MAX        */
-```
+<p align="center"><img src="assets/onepiece.svg" width="100%" alt="while (!found(ONE_PIECE)) sail(GRAND_LINE);"/></p>
 
 <p align="center"><sub>[Inferior 1 (process 42) exited normally] · set sail_</sub></p>

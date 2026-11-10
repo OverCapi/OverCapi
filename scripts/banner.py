@@ -5,6 +5,7 @@ Edit the constants below, then run:  python3 scripts/banner.py
 The avatar is embedded as base64 because GitHub blocks external images inside SVGs.
 """
 import base64
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -17,6 +18,36 @@ PAYLOAD = b"OverCapi@42 fr\n\x00low-lvl\x00"  # 8 bytes per hexdump line
 AVATAR = ASSETS / "avatar.jpg"
 AVATAR_LABEL = "avatar.bin · 0x6b50"
 SECTIONS = ["whoami", "objdump -h stack", "readelf -S projects", "contributions", 'grep -r "one piece" /']
+
+# code panels: [a]amber[/] [c]cyan[/] [d]dim[/] [r]keyword[/] [_] blinking cursor
+WHOAMI_LEFT = """[d](gdb)[/] p *overcapi
+[d]$1 =[/] {
+  alias    = [a]"OverCapi"[/],
+  school   = [a]"42"[/],
+  location = [a]"France"[/],
+  langs    = {[a]"fr"[/], [a]"en"[/]},
+  building = [a]"kyara-extension"[/],
+  learning = [a]"Rust"[/],
+  status   = [c]PROMPTING_CLAUDE[/]
+}"""
+WHOAMI_RIGHT = """[d](gdb)[/] info registers
+rip  [c]0x00000042[/]    <school+0>
+rsp  [c]0x7ffd0c0ffee[/] <coffee>
+rax  [c]0x0[/]           leaks
+rbx  [c]0xdeadbeef[/]    segfaults
+rcx  [c]0x1[/]           more emulator
+eflags [ [a]ZF CURIOUS[/] ]
+
+[d](gdb)[/] continue[_]"""
+ONEPIECE = """[d]00000420[/]  4f 4e 45 50 49 45 43 45  [a]|ONEPIECE|[/]
+[d]00000428[/]  69 73 20 72 65 61 6c 21  [a]|is real!|[/]
+
+[r]while[/] (!found([c]ONE_PIECE[/]))
+    sail([a]GRAND_LINE[/]);   [d]// next stop: Laugh Tale[/]
+
+[d]/* crew:   nakama[] = { claude, gdb, valgrind };  */[/]
+[d]/* bounty: 0x00000000 berries (for now)           */[/]
+[d]/* hat:    straw, sizeof(dream) > SIZE_MAX        */[/]"""
 # ----------------------------------------------------------------------------
 
 AMBER, CYAN, DIM, FG, WHITE = "#f0b429", "#56d4dd", "#8b949e", "#c9d1d9", "#f0f3f6"
@@ -100,9 +131,47 @@ def header(i, label):
 '''
 
 
+COLORS = {"a": AMBER, "c": CYAN, "d": DIM, "r": "#ff7b72"}
+
+
+def code_line(src):
+    """'[a]x[/] y' -> tspans; '[_]' -> blinking cursor."""
+    out = []
+    for tok in re.split(r"(\[[a-z_]\]|\[/\])", src):
+        if tok == "[_]":
+            out.append(f'<tspan class="blink" fill="{AMBER}">█</tspan>')
+        elif tok == "[/]":
+            out.append("</tspan>")
+        elif re.fullmatch(r"\[[a-z]\]", tok):
+            out.append(f'<tspan fill="{COLORS[tok[1]]}">')
+        else:
+            out.append(esc(tok))
+    return "".join(out)
+
+
+def panels(blocks, width=880, pad=22, lh=22, gap=16):
+    """Side-by-side code panels without GitHub's table/code-block chrome."""
+    h = max(len(b.splitlines()) for b in blocks) * lh + pad * 2 - 6
+    w = (width - gap * (len(blocks) - 1)) / len(blocks)
+    parts = []
+    for i, block in enumerate(blocks):
+        x = i * (w + gap)
+        parts.append(f'<rect x="{x + .5:.1f}" y=".5" width="{w - 1:.1f}" height="{h - 1}" rx="8" fill="#161b22" stroke="#30363d"/>')
+        for j, line in enumerate(block.splitlines()):
+            parts.append(f'<text x="{x + pad:.1f}" y="{pad + 10 + j * lh}" font-size="13" fill="{FG}" xml:space="preserve">{code_line(line)}</text>')
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {h}" width="{width}" height="{h}">
+<style>text{{font-family:{FONT}}}.blink{{animation:blink 1s steps(1) infinite}}@keyframes blink{{50%{{opacity:0}}}}</style>
+{"".join(parts)}
+</svg>
+'''
+
+
 if __name__ == "__main__":
     assert hexdump(b"OverCapi")[0] == ("00000000", "4f 76 65 72 43 61 70 69", "OverCapi")
+    assert code_line("[a]x[/] <y>") == f'<tspan fill="{AMBER}">x</tspan> &lt;y&gt;'
     (ASSETS / "banner.svg").write_text(banner())
+    (ASSETS / "whoami.svg").write_text(panels([WHOAMI_LEFT, WHOAMI_RIGHT]))
+    (ASSETS / "onepiece.svg").write_text(panels([ONEPIECE]))
     for i, label in enumerate(SECTIONS, 1):
         (ASSETS / f"h-{i:02d}.svg").write_text(header(i, label))
     print("wrote banner.svg +", len(SECTIONS), "headers")
