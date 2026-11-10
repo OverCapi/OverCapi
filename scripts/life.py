@@ -13,7 +13,7 @@ import urllib.request
 from pathlib import Path
 
 LOGIN = os.environ.get("GH_LOGIN", "OverCapi")
-THRESHOLD = 2   # days with >= THRESHOLD commits start alive
+THRESHOLD = 1   # days with >= THRESHOLD commits start alive
 GENS = 64
 DT = 0.38       # seconds per generation
 OUT = Path(__file__).resolve().parent.parent / "assets" / "life.svg"
