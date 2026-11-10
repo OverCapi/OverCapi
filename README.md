@@ -21,15 +21,25 @@
 
 <img src="assets/h-02.svg" width="100%" alt="0x02 objdump -h stack"/>
 
-<p align="center">
-<code>.text</code> <sub>0x00400000 · langs</sub><br/><br/>
-<img src="https://skillicons.dev/icons?i=c,cpp,rust,python,ts,java&theme=dark" alt="C, C++, Rust, Python, TypeScript, Java"/>
-</p>
+<div align="center">
 
-<p align="center">
-<code>.data</code> <sub>0x00600000 · tools</sub><br/><br/>
-<img src="https://skillicons.dev/icons?i=linux,bash,git,docker,vscode&theme=dark" alt="Linux, Bash, Git, Docker, VS Code"/>&nbsp;<img src="assets/claudecode.svg" width="48" alt="Claude Code"/>
-</p>
+<table>
+<tr><th>[Nr]</th><th align="left">Section</th><th align="left">Address</th><th align="left">Contents</th></tr>
+<tr>
+<td><code>[ 1]</code></td>
+<td><code>.text</code></td>
+<td><sub>0x00400000 · langs</sub></td>
+<td><img src="https://skillicons.dev/icons?i=c,cpp,rust,python,ts,java&theme=dark" height="40" alt="C, C++, Rust, Python, TypeScript, Java"/></td>
+</tr>
+<tr>
+<td><code>[ 2]</code></td>
+<td><code>.data</code></td>
+<td><sub>0x00600000 · tools</sub></td>
+<td><img src="https://skillicons.dev/icons?i=linux,bash,git,docker,vscode&theme=dark" height="40" alt="Linux, Bash, Git, Docker, VS Code"/>&nbsp;<img src="assets/claudecode.svg" height="40" alt="Claude Code"/></td>
+</tr>
+</table>
+
+</div>
 
 <p align="center">
 <img src="https://img.shields.io/badge/C-161b22?style=for-the-badge&logo=c&logoColor=f0b429" alt="C"/>
